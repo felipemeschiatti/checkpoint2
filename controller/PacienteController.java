@@ -62,7 +62,7 @@ public class PacienteController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         boolean removed = service.delete(id);
         return removed
-            ? ResponseEntity.noContent().build()
-            : ResponseEntity.notFound().build();
+        ? ResponseEntity.noContent().build()
+        : ResponseEntity.notFound().build();
     }
 }
