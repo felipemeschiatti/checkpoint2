@@ -30,7 +30,7 @@ public class PacienteController {
     public ResponseEntity<PacienteResponse> create(@RequestBody PacienteRequestCreate dto) {
         Paciente p = service.create(dto);
         return ResponseEntity.status(201)
-                             .body(new PacienteResponse().toDto(p));
+                            .body(new PacienteResponse().toDto(p));
     }
 
     @GetMapping
@@ -60,9 +60,10 @@ public class PacienteController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        boolean removed = service.delete(id);
-        return removed
-        ? ResponseEntity.noContent().build()
-        : ResponseEntity.notFound().build();
-    }
+        if(PacienteService.delete(id)){
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

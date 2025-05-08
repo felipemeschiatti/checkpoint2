@@ -25,7 +25,7 @@ public class ProfissionalController {
             @RequestBody ProfissionalRequestCreate dto) {
         Profissional p = service.create(dto);
         return ResponseEntity.status(201)
-                             .body(new ProfissionalResponse().toDto(p));
+                            .body(new ProfissionalResponse().toDto(p));
     }
 
     @GetMapping
@@ -53,11 +53,13 @@ public class ProfissionalController {
             .orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/{id}")
+
+@DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        boolean removed = service.delete(id);
-        return removed
-            ? ResponseEntity.noContent().build()
-            : ResponseEntity.notFound().build();
-        }
+        if(ProfissionalService.delete(id)){
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

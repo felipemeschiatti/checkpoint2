@@ -48,5 +48,5 @@ public class ProfissionalService {
 
     public boolean delete(Long id) {
         return profissionais.removeIf(p -> p.getId().equals(id));
-    }
+    }
 }

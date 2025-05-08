@@ -14,7 +14,7 @@ import br.com.fiap.checkpoint2.model.Paciente;
 @Service
 public class PacienteService {
     private Long sequence = 1L;
-    private List<Paciente> pacientes = new ArrayList<>();
+    private List<Paciente> pacientes;
 
     public Paciente create(PacienteRequestCreate dto) {
         Paciente p = dto.toModel();
@@ -48,5 +48,5 @@ public class PacienteService {
 
     public boolean delete(Long id) {
         return pacientes.removeIf(p -> p.getId().equals(id));
-    }
+    }
 }
