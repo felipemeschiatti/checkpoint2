@@ -93,6 +93,7 @@ src/
 ## 👨‍💻 Contribuidores
 
 - Felipe Meschiatti
+- Cauã Fernandes
 
 ---
 
